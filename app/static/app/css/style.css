@@ -1,0 +1,314 @@
+:root {
+    --title-blue: #217BF4;
+    --orange: #f26622;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.title-blue {
+    color: var(--title-blue);
+}
+
+.justify-text {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.d-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.container-fluid {
+    height: 100vh;
+    /* Full screen */
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    height: 10%;
+}
+
+
+#header-image {
+    background-image: url('../img/images/header.svg');
+    background-size: cover;
+    background-position: center;
+    height: 80%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.consultation-box {
+    background-color: #49568ccc;
+    /* close to your image background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.custom-input-header {
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 6px;
+    color: white;
+}
+
+.custom-input-header::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.custom-button {
+    background-color: var(--orange);
+    /* orange color from your image */
+    border: none;
+    border-radius: 6px;
+}
+
+.custom-button:hover {
+    background-color: #d9530f;
+}
+
+
+
+.circle-img {
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 6px solid #fff;
+    position: absolute;
+}
+
+.main-img {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    z-index: 2;
+}
+
+.small-img {
+    width: 150px;
+    height: 150px;
+    z-index: 1;
+}
+
+.top-right {
+    top: -75px;
+    right: -40px;
+}
+
+.bottom-right {
+    bottom: -75px;
+    right: -40px;
+}
+
+.image-group {
+    height: 250px;
+    position: relative;
+}
+
+/* Decorative Dots */
+.decor-dot {
+    position: absolute;
+    z-index: 1;
+    height: auto;
+}
+
+/* Example positions - tweak these as needed */
+.blue-dot {
+    top: 90%;
+    /* near bottom of section-1 */
+    left: 10%;
+}
+
+.orange-dot {
+    top: 95%;
+    /* slightly lower */
+    right: 12%;
+}
+
+#ellipse1 {
+    width: 40vw;
+    height: 510px;
+    margin-top: -3%;
+    right: 0%;
+}
+
+#ellipse7 {
+    width: 70vw;
+    height: 557px;
+    top: 0%;
+    right: 0%;
+    margin-top: -5%;
+}
+
+#ellipse24 {
+    top: 2%;
+    right: 47%;
+}
+
+#ellipse24-1 {
+    top: 12%;
+    right: 48%;
+}
+
+#ellipse25-1 {
+    top: 17%;
+    right: 23%;
+}
+
+#ellipse10 {
+    top: 1%;
+    left: 7%;
+}
+
+#ellipse8 {
+    width: 150px;
+    top: 10%;
+}
+
+#group1 {
+    width: 200px;
+    top: 15%;
+    left: 5%;
+}
+
+
+#img1 {
+    top: 5vh;
+    left: 30vw;
+}
+
+#img2 {
+    top: 20vh;
+    left: 40vw;
+}
+
+#img3 {
+    top: 44vh;
+    right: 30vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.card-client {
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 16rem;
+    border: none;
+}
+
+
+
+
+
+.underline {
+    height: 9px;
+    background-color: var(--title-blue);
+    border: none;
+    width: 8%;
+    opacity: 1;
+}
+
+
+
+
+.icon-holder {
+    background: #217cf43f;
+    width: 60px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+
+.card-img-top {
+    width: 100%;
+    height: 182px;
+    object-fit: cover;
+    /* Ensures image fills the box without distortion */
+    object-position: center;
+}
+
+
+
+
+#footer-image {
+    background-image: url('../img/images/Rectangle.svg');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#footer-image .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* black with 50% opacity */
+    z-index: 1;
+}
+
+#footer-image .position-relative {
+    z-index: 2;
+    /* keeps content above overlay */
+}
+
+.custom-input {
+    background-color: #0d6efd;
+    /* Bootstrap primary */
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 0;
+    /* optional: remove rounding */
+    color: white;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+.contact-links>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    background-color: aliceblue;
+    border-radius: 20px;
+}

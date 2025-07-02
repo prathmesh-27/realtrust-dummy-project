@@ -1,0 +1,13 @@
+{% load static %}
+{% static 'app/base.html' %}
+
+{% block title %}
+Admin Dashboard
+{% endblock %}
+
+
+{% block content %}
+<h2>Welcome to RealTrust</h2>
+<p>This is the Admin-Panel.</p>
+<a href="{% url 'admin-logout' %}">Logout</a>
+{% endblock %}

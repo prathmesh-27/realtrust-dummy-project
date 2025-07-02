@@ -1,0 +1,45 @@
+{% load static %}
+
+<div class="container-fluid p-0">
+    <nav class="py-2 d-flex align-items-center justify-content-around">
+        <img src="{% static 'app/img/images/logo.svg' %}" alt="logo" style="width:150px ;">
+
+        <div>
+            <ul class="d-flex justify-content-evenly align-items-center list-unstyled m-0 w-50">
+                <li class="mx-4"><a href="#" class="text-dark text-decoration-none hover:text-primary">Home</a></li>
+                <li class="mx-4"><a href="#" class="text-dark text-decoration-none hover:text-primary">Services</a></li>
+                <li class="mx-4"><a href="#" class="text-dark text-decoration-none hover:text-primary">Project</a></li>
+                <li class="mx-4"><a href="#" class="text-dark text-decoration-none hover:text-primary">Testimonials</a>
+                </li>
+                <li class="mx-4"><a href="#" class="text-dark text-decoration-none hover:text-primary">Contact</a></li>
+                <li class="mx-4"> <button class="btn px-5 text-white fw-semibold custom-button"
+                        type="submit">Contact</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="header-image" class="text-white d-flex justify-content-around align-items-center">
+
+        <div class=" text-white" style="width: 350px;">
+            <h1 class="m-auto">Consultation,Design & Marketing</h1>
+        </div>
+        <div class="consultation-box p-4 rounded text-white" style="width: 350px;">
+            <h4 class="fw-bold text-center mb-4">Get a Free<br>Consultation</h4>
+
+            <form>
+                <input type="text" class="form-control custom-input-header mb-3" placeholder="Full Name" required>
+                <input type="email" class="form-control custom-input-header mb-3" placeholder="Enter Email Address"
+                    required>
+                <input type="tel" class="form-control custom-input-header mb-3" placeholder="Mobile Number" required>
+                <input type="text" class="form-control custom-input-header mb-4" placeholder="Area, City" required>
+
+                <button type="submit" class="btn btn-warning w-100 text-white fw-semibold custom-button">
+                    Get Quick Quote
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

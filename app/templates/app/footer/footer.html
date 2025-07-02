@@ -1,0 +1,63 @@
+{% load static %}
+<div class="p-0">
+    <div id="footer-image" class="position-relative text-white d-flex align-items-center justify-content-center">
+        <!-- Overlay -->
+        <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+        <!-- Content -->
+        <div class="position-relative text-center">
+            <h3 class="mb-3 w-75 m-auto">
+                Learn more about our listing process, as well as our additional staging and design work.
+            </h3>
+            <button class="btn btn-light px-5 text-primary">Learn More</button>
+        </div>
+    </div>
+
+    <div class="bg-primary d-flex align-items-center justify-content-around w-100 py-4">
+        <div>
+            <ul class="d-flex justify-content-evenly list-unstyled m-0 w-50">
+                <li class="mx-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                <li class="mx-2"><a href="#" class="text-white text-decoration-none">Services</a></li>
+                <li class="mx-2"><a href="#" class="text-white text-decoration-none">Project</a></li>
+                <li class="mx-2"><a href="#" class="text-white text-decoration-none">Testimonials</a></li>
+                <li class="mx-2"><a href="#" class="text-white text-decoration-none">Contact</a></li>
+            </ul>
+        </div>
+        <div class="text-white d-flex align-items-center gap-2">
+            <span class="mx-2">Subscribe Us</span>
+            <form action="">
+                <input type="email" name="email" id="subscribe-email" placeholder="Enter Email Address"
+                    class="custom-input text-white" style="max-width: 200px;">
+                <button class="btn btn-light px-5 text-primary py-1" type="submit" style="
+                    margin-top: -10px;
+                    margin-left: -9px;
+                ">Subscribe</button>
+            </form>
+
+        </div>
+
+    </div>
+    <div class="bg-dark text-white py-4">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap">
+
+            <!-- Left: Copyright -->
+            <small>All Rights Reserved © 2025</small>
+
+            <!-- Center: Logo -->
+            <div class="text-center">
+                <img src="{% static 'app/img/images/logo.svg' %}" alt="Logo" style="height: 24px;">
+            </div>
+
+            <!-- Right: Social Icons -->
+            <div class="contact-links d-flex ">
+                <a href="#" class="text-white me-1"><img src="{% static 'app/img/icons/twitter.svg' %}" alt="twitter"
+                        style="height: 18px;"></a>
+                <a href="#" class="text-white me-1"><img src="{% static 'app/img/icons/instagram.svg' %}"
+                        alt="instagram" style="height: 18px;"></a>
+                <a href="#" class="text-white me-1"><img src="{% static 'app/img/icons/Frame.svg' %}" alt="facebook"
+                        style="height: 18px;"></a>
+                <a href="#" class="text-white me-1"><img src="{% static 'app/img/icons/Linkedin.svg' %}" alt="linkedin"
+                        style="height: 18px;"></a>
+            </div>
+        </div>
+    </div>
+</div>

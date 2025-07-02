@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Home - RealTrust{% endblock %}
+
+
+{% block header %}
+{% include 'app/header/header.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Decorative SVG dots -->
+
+<div class="position-relative">
+
+    <img src="{% static 'app/img/shapes/Ellipse 1.svg' %}" class="position-absolute" id="ellipse1" alt="ellipse1">
+    <img src="{% static 'app/img/shapes/Ellipse 7.svg' %}" class="position-absolute" id="ellipse7" alt="ellipse1">
+    {% include 'app/sections/section-1.html' %}
+
+    <img src="{% static 'app/img/shapes/Ellipse 8.svg' %}" class="decor-dot" id="ellipse8" alt="dot">
+    <img src="{% static 'app/img/shapes/Ellipse 10.svg' %}" class="decor-dot" id="ellipse10" alt="dot" width="50">
+    <img src="{% static 'app/img/shapes/Group 1.svg' %}" class="decor-dot" id="group1" alt="dot" width="70">
+
+
+    <img src="{% static 'app/img/shapes/Ellipse 24.svg' %}" class="decor-dot" id="ellipse24" alt="dot" width="30">
+    <img src="{% static 'app/img/shapes/Ellipse 24-1.svg' %}" class="decor-dot" id="ellipse24-1" alt="dot" width="20">
+    <img src="{% static 'app/img/shapes/Ellipse 25-1.svg' %}" class="decor-dot" id="ellipse25-1" alt="dot" width="20">
+    <!-- Why Choose Us -->
+    {% include 'app/sections/section-2.html' %}
+
+
+
+
+
+    <!-- Images Section -->
+    {% include 'app/sections/section-3.html' %}
+
+    <!-- About Us -->
+    {% include 'app/sections/section-4.html' %}
+
+    <!-- Our Projects -->
+    {% include 'app/sections/section-5.html' %}
+
+    <!-- Happy Clients -->
+    {% include 'app/sections/section-6.html' %}
+
+</div>
+
+{% endblock %}
+
+
+<!-- Footer -->
+{% block footer %}
+{% include 'app/footer/footer.html' %}
+{% endblock %}

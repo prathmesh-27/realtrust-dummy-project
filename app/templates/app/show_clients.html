@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+</head>
+
+<body>
+    {% for client in clients %}
+    <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+        <h3>{{ client.client_name}}</h3>
+        <p><strong>Designation:</strong> {{ client.client_designation }}</p>
+        <p><strong>Description:</strong> {{ client.client_description }}</p>
+        <img src="{% url 'serve_client_image' client.client_image.grid_id %}" width="300" alt="Client Image">
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>
