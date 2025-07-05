@@ -1,23 +1,58 @@
-<!DOCTYPE html>
-<html>
+{% extends 'app/base.html' %}
+{% block title %}Admin-Login{% endblock %}
+{% block style%}
+<style>
+    body,
+    html,
+    main {
+        height: 100%;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+    }
 
-<head>
-    <title>Admin Login</title>
-</head>
+    .login-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-<body>
-    <h2>Admin Login</h2>
-    <form method="POST" action="{% url 'admin-login' %}">
-        {% csrf_token %}
-        <label>Username:</label><br>
-        <input type="text" name="username"><br><br>
-        <label>Password:</label><br>
-        <input type="password" name="password"><br><br>
-        <button type="submit">Login</button>
-    </form>
+    .login-card {
+        background: #fff;
+        padding: 2.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.25);
+        border-color: #6a11cb;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container-fluid login-container">
     {% if error %}
     <p style="color: red;">{{ error }}</p>
     {% endif %}
-</body>
+    <div class="login-card">
+        <h3 class="text-center mb-4">Admin Login</h3>
+        <form method="POST" action="{% url 'admin-login' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input name="username" type="text" class="form-control" id="username" placeholder="Enter username"><br>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
 
-</html>
+    </div>
+</div>
+{% endblock %}

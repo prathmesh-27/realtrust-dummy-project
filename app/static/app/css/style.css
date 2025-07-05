@@ -193,6 +193,20 @@ nav {
     left: 5%;
 }
 
+#subtract-1 {
+    right: 20vw;
+    bottom: 1%;
+}
+
+#rectangle-54 {
+    top: 4vh;
+    left: 39vw;
+}
+
+#group1-rectangle {
+    width: 200px;
+    right: 17vw;
+}
 
 #img1 {
     top: 5vh;
@@ -208,16 +222,6 @@ nav {
     top: 44vh;
     right: 30vw;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 .card-client {
@@ -236,9 +240,8 @@ nav {
     border: none;
     width: 8%;
     opacity: 1;
+    border-radius: 5px;
 }
-
-
 
 
 .icon-holder {

@@ -1,13 +1,183 @@
+{% extends 'app/base.html' %}
 {% load static %}
-{% static 'app/base.html' %}
 
 {% block title %}
 Admin Dashboard
 {% endblock %}
 
+{% block style %}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .topnav {
+        background-color: #343a40;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .topnav h3 {
+        color: #fff;
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    .topnav ul {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .topnav .nav-link {
+        color: #adb5bd;
+        font-weight: 500;
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+
+    .topnav .nav-link.active,
+    .topnav .nav-link:hover {
+        background-color: #495057;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    main {
+        padding-top: 20px;
+    }
+
+    section {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+</style>
+{% endblock %}
+
+{% block header %}
+<nav class="topnav">
+    <h3>Admin Panel</h3>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#viewContact">View Contacts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#subscribers">View Subscribers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin-logout' %}">Logout</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
 
 {% block content %}
-<h2>Welcome to RealTrust</h2>
-<p>This is the Admin-Panel.</p>
-<a href="{% url 'admin-logout' %}">Logout</a>
+<div class="container-fluid">
+    <div class="row">
+        <h1 class="mb-4 text-center">Welcome, Admin</h1>
+    </div>
+
+    <div class="d-flex row ms-sm-auto gap-2 justify-content-center">
+        <section id="addProject" class="mb-5 col-lg-5 col-md-9">
+            <h2 class="mb-3">Add Project</h2>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Project Name</label>
+                        <input type="text" class="form-control" placeholder="Enter project name">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Location</label>
+                        <input type="text" class="form-control" placeholder="Enter location">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter project description"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">Upload Image</label>
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary w-100">Add Project</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Add Client Section -->
+        <section id="addClient" class="mb-5 col-lg-6 col-md-9">
+            <h2 class="mb-3">Add Client</h2>
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Client Name</label>
+                        <input type="text" class="form-control" placeholder="Enter client name">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Company</label>
+                        <input type="text" class="form-control" placeholder="Enter company name">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter email">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success w-100">Add Client</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+    </div>
+
+    <div class="row d-flex">
+        <!-- Contact Form Details -->
+        <section id="viewContact" class="mb-5">
+            <h2 class="mb-3">Contact Form Submissions</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jane Doe</td>
+                            <td>jane@example.com</td>
+                            <td>Interested in your project.</td>
+                        </tr>
+                        <!-- Dynamically load more rows -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="row d-flex">
+        <!-- Subscribed Emails -->
+        <section id="subscribers">
+            <h2 class="mb-3">Subscribed Emails</h2>
+            <ul class="list-group">
+                <li class="list-group-item">user1@example.com</li>
+                <li class="list-group-item">user2@example.com</li>
+                <!-- Dynamically load more emails -->
+            </ul>
+        </section>
+    </div>
+
+
+</div>
+</div>
 {% endblock %}
