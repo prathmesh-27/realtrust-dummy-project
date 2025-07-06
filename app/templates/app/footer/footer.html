@@ -24,7 +24,8 @@
         </div>
         <div class="text-white d-flex align-items-center gap-2">
             <span class="mx-2">Subscribe Us</span>
-            <form action="">
+            <form action="{% url 'subscribe' %}" method="post">
+                {% csrf_token %}
                 <input type="email" name="email" id="subscribe-email" placeholder="Enter Email Address"
                     class="custom-input text-white" style="max-width: 200px;">
                 <button class="btn btn-light px-5 text-primary py-1" type="submit" style="

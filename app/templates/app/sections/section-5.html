@@ -6,46 +6,17 @@
     <div class="container d-flex flex-wrap justify-content-center gap-4">
 
         <div class="d-flex overflow-auto gap-3 pb-3">
+            {% for project in projects %}
+
             <div class="card" style="width: 18rem;">
-                <img src="{% static 'app/img/images/pexels-brett-sayles-2881232.svg' %}" class="card-img-top" alt="">
+                <img src="{% url 'serve_project_image' project.project_image.grid_id %}" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title title-blue">Project Title</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h5 class="card-title title-blue">{{ project.project_name }}</h5>
+                    <p>{{ project.project_description }}</p>
                     <a href="#" class="btn px-5 text-white fw-semibold custom-button">View More</a>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'app/img/images/pexels-brett-sayles-2881232-1.svg' %}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title title-blue">Project Title</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="#" class="btn px-5 text-white fw-semibold custom-button">View More</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'app/img/images/pexels-brett-sayles-2881232-2.svg' %}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title title-blue">Project Title</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="#" class="btn px-5 text-white fw-semibold custom-button">View More</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'app/img/images/pexels-brett-sayles-2881232-3.svg' %}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title title-blue">Project Title</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="#" class="btn px-5 text-white fw-semibold custom-button">View More</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'app/img/images/pexels-andres-ayrton-6578391.svg' %}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title title-blue">Project Title</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <a href="#" class="btn px-5 text-white fw-semibold custom-button">View More</a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

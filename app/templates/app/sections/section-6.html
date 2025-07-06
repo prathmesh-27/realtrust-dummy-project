@@ -3,53 +3,17 @@
     <h3 class="fw-bold title-blue mb-5">Happy Clients</h3>
     <div class="container d-flex flex-wrap justify-content-center gap-4">
         <div class="d-flex overflow-auto gap-3 pb-3">
+            {% for client in clients %}
             <div class="card p-3 card-client">
                 <div class="mx-auto my-3" style="width: 70px; height: 70px;">
-                    <img src="{% static 'app/img/images/Ellipse 28.svg' %}" alt=""
+                    <img src="{% url 'serve_client_image' client.client_image.grid_id %}" alt=""
                         style="width: 100%; border-radius: 50%;">
                 </div>
-                <p class="text-muted text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                <h6 class="mt-2 text-left title-blue">Client Name</h6>
-                <small class="text-muted text-left">Indore</small>
+                <p class="text-muted text-left">{{ client.client_description }}</p>
+                <h6 class="mt-2 text-left title-blue">{{ client.client_name}}</h6>
+                <small class="text-muted text-left">{{ client.client_designation }}</small>
             </div>
-            <div class="card p-3 card-client">
-
-                <div class="mx-auto my-3" style="width: 70px; height: 70px;">
-                    <img src="{% static 'app/img/images/Ellipse 29.svg' %}" alt=""
-                        style="width: 100%; border-radius: 50%;">
-                </div>
-                <p class="text-muted text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                <h6 class="mt-2 text-left title-blue">Client Name</h6>
-                <small class="text-muted text-left">Indore</small>
-            </div>
-            <div class="card p-3 card-client">
-                <div class="mx-auto my-3" style="width: 70px; height: 70px;">
-                    <img src="{% static 'app/img/images/Ellipse 31.svg' %}" alt=""
-                        style="width: 100%; border-radius: 50%;">
-                </div>
-                <p class="text-muted text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                <h6 class="mt-2 text-left title-blue">Client Name</h6>
-                <small class="text-muted text-left">Indore</small>
-            </div>
-            <div class="card p-3 card-client">
-                <div class="mx-auto my-3" style="width: 70px; height: 70px;">
-                    <img src="{% static 'app/img/images/Ellipse 33.svg' %}" alt=""
-                        style="width: 100%; border-radius: 50%;">
-                </div>
-                <p class="text-muted text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                <h6 class="mt-2 text-left title-blue">Client Name</h6>
-                <small class="text-muted text-left">Indore</small>
-            </div>
-            <div class="card p-3 card-client">
-                <div class="mx-auto my-3" style="width: 70px; height: 70px;">
-                    <img src="{% static 'app/img/images/Ellipse 35.svg' %}" alt=""
-                        style="width: 100%; border-radius: 50%;">
-                </div>
-                <p class="text-muted text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                <h6 class="mt-2 text-left title-blue">Client Name</h6>
-                <small class="text-muted text-left">Indore</small>
-            </div>
-
+            {% endfor %}
         </div>
 
     </div>

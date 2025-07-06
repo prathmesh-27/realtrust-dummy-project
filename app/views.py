@@ -1,19 +1,35 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,JsonResponse,FileResponse
 from bson import ObjectId
+from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt,csrf_protect
 import json
 from .models import *
 
 
 def home(request):
-    return render(request, 'app/home.html')
+    clients = Client.objects().all()
+    projects = Project.objects.all()
+    data ={
+        'clients': clients,
+        'projects':projects
+    }
+    return render(request, 'app/home.html',data)
 
 
 def admin_dashboard(request):
     if not request.session.get('is_admin'):
         return redirect('admin-login')
-    return render(request,'app/admin_dashboard.html')
+    
+    subscribedEmail = SubscribedEmail.objects.all()
+    contacts = ContactForm.objects.all()
+    
+    data = {
+    "emails":[s.email_id for s in subscribedEmail],
+    "contacts":[{"name":c.full_name,"email":c.email,"mobile":c.mobile,"city":c.city} for c in contacts], 
+    }
+    
+    return render(request,'app/admin_dashboard.html',data)
 
 def admin_logout(request):
     request.session.flush()
@@ -62,22 +78,12 @@ def add_project(request):
 
         # Save the whole document
         project.save()
-
-        return JsonResponse({
-            'message': 'Image uploaded successfully!',
-            'project': {
-                'name': project.project_name,
-                'location': project.project_location,
-                'description': project.project_description
-            }
-        })
-
-    return render(request,'app/forms/project_form.html')
+        messages.success(request, 'Project added successfully!')
+        return redirect('admin-dashboard')
+    
+    return redirect('admin-dashboard')
 
 
-def show_projects(request):
-    projects = Project.objects.all()
-    return render(request, 'app/show_projects.html', {'projects': projects})
 
 def serve_project_image(request, file_id):
     try:
@@ -114,21 +120,11 @@ def add_client(request):
 
         # Save the whole document
         client.save()
-        
-        return JsonResponse({
-            'message': 'Image uploaded successfully!',
-            'project': {
-                'name': client.client_name,
-                'designation': client.client_designation,
-                'description': client.client_description
-            }
-        })
+        messages.success(request, 'Client added successfully!')
+        return redirect('admin-dashboard')
 
-    return render(request,'app/forms/client_form.html')
+    return redirect("admin-dashboard")
 
-def show_clients(request):
-    clients = Client.objects().all()
-    return render(request, 'app/show_clients.html', {'clients': clients})
 
 def serve_client_image(request,file_id):
     try:
@@ -152,26 +148,18 @@ def add_contact(request):
         
         contact = ContactForm(full_name= name,mobile=mobile,email=email,city=city)
         contact.save()
+        messages.success(request,"Your details had recorded successfully.We will get back to you soon.")
+        return redirect('home')
         
-        return JsonResponse({'message': 'Data saved successfully!'})
+    return redirect('home')   
         
-    return render(request,"app/forms/contact_form.html")    
-        
-
-def view_contacts(request):
-    contacts = ContactForm.objects().all()
-    return JsonResponse({"contacts":[{"name":c.full_name,"email":c.email,"mobile":c.mobile,"city":c.city} for c in contacts]})
-
 
 
 @csrf_protect
 def subscribe(request):
     if request.method == 'POST':
         email = request.POST.get('email')
-        SubscribedEmail(email=email).save()
-        return HttpResponse("Student saved via form.")
+        SubscribedEmail(email_id=email).save()
+        messages.success(request,"You Subscribed to our service.")
+        return redirect('home')
  
-
-def show_subscribed_emails(request):
-    subscribedEmail = SubscribedEmail.objects.all()
-    return JsonResponse({'emails': [s.email_id for s in subscribedEmail]})

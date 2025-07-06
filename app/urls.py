@@ -14,20 +14,16 @@ urlpatterns = [
     
     #for project
     path("project-add/",views.add_project,name='project_add'),
-    path('projects/', views.show_projects, name='show_projects'),
     path('projects/image/<str:file_id>/', views.serve_project_image, name='serve_project_image'),
     
     #for client 
     path("client-add/",views.add_client,name='client_add'),
-    path('clients/', views.show_clients, name='show_clients'),
     path('clients/image/<str:file_id>/', views.serve_client_image, name='serve_client_image'),
     
     #for contactform
-    path("contact-add/",views.add_contact),
-    path("contacts/",views.view_contacts),    
+    path("contact-add/",views.add_contact),   
     
     #for subscribed emails
-    path("subscribed/",views.subscribe),
-    path("subscriptions/",views.show_subscribed_emails),
-    
+    path("subscribed/",views.subscribe,name="subscribe"),
+
 ]

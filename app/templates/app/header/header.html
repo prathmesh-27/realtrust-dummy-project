@@ -18,6 +18,12 @@
             </ul>
         </div>
     </nav>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success text-center">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
     <div id="header-image" class="text-white d-flex justify-content-around align-items-center">
 
         <div class=" text-white" style="width: 350px;">
@@ -26,12 +32,16 @@
         <div class="consultation-box p-4 rounded text-white" style="width: 350px;">
             <h4 class="fw-bold text-center mb-4">Get a Free<br>Consultation</h4>
 
-            <form>
-                <input type="text" class="form-control custom-input-header mb-3" placeholder="Full Name" required>
-                <input type="email" class="form-control custom-input-header mb-3" placeholder="Enter Email Address"
+            <form method="POST" action="/contact-add/">
+                {% csrf_token %}
+                <input type="text" name="name" class="form-control custom-input-header mb-3" placeholder="Full Name"
                     required>
-                <input type="tel" class="form-control custom-input-header mb-3" placeholder="Mobile Number" required>
-                <input type="text" class="form-control custom-input-header mb-4" placeholder="Area, City" required>
+                <input type="email" name="email" class="form-control custom-input-header mb-3"
+                    placeholder="Enter Email Address" required>
+                <input type="tel" name="mobile" class="form-control custom-input-header mb-3"
+                    placeholder="Mobile Number" required>
+                <input type="text" name="city" class="form-control custom-input-header mb-4" placeholder="Area, City"
+                    required>
 
                 <button type="submit" class="btn btn-warning w-100 text-white fw-semibold custom-button">
                     Get Quick Quote
