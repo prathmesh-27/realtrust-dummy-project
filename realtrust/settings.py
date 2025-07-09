@@ -125,12 +125,24 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 from mongoengine import connect
 from mongoengine.connection import get_connection
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load environment variables from .env
+
+db_name = os.getenv('MONGO_DB_NAME')
+username = os.getenv('MONGO_USERNAME')
+password = os.getenv('MONGO_PASSWORD')
+cluster = os.getenv('MONGO_CLUSTER')
+app_name = os.getenv('MONGO_APP_NAME')
+
+host = f"mongodb+srv://{username}:{password}@{cluster}/{db_name}?retryWrites=true&w=majority&appName={app_name}"
 
 connect(
-    db='sample-project-realtrust',
-    username='prathmeshvairale1803',
-    password='1234',
-    host='mongodb+srv://prathmeshvairale1803:1234@cluster0.hqcwme2.mongodb.net/sample-project-realtrust?retryWrites=true&w=majority&appName=Cluster0'
+    db=db_name,
+    username=username,
+    password=password,
+    host=host
 )
 
 # Test the connection
